@@ -1,0 +1,13 @@
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  script:
+    - echo "🚀 Deploying..."
+    - pm2 delete all || true
+    - pm2 start app.js
+  tags:
+    - nodejs
+  only:
+    - main  # 또는 master
