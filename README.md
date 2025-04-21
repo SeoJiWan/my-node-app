@@ -76,6 +76,13 @@ deploy_node:
 ```
 
 ```
+.gitlab-ci.yml
+1. stages: 파이프라인에서 수행할 작업의 순서를 정의합니다.
+2. jobs: 각 작업을 정의합니다. 각 job은 stage에 속합니다.
+3. script: 각 job에서 실행할 명령어를 작성합니다.
+```
+
+```
 PM2(Process Manager2)는 Node.js 애플리케이션을 프로덕션 환경에서 실행/관리하는 툴
 Node.js 앱을 백그라운드에서 안정적으로 실행행
 ```
