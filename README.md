@@ -34,3 +34,29 @@ sudo apt install gitlab-runner
 프로젝트 > Settings > CI/CD > Runners > 점 세개
 "Registration token" 복사
 ![alt text](image.png)
+sudo gitlab-runner register
+질문 | 입력 예시
+URL | https://gitlab.com/
+Token | (웹에서 복사한 값)
+Description | my-node-runner
+Tags | nodejs
+Executor | shell
+
+# .gitlab-ci.yml 작성
+stages:
+  - deploy
+
+deploy_node:
+  stage: deploy
+  script:
+    - echo "Deploying Node.js app..."
+    - npm install
+    - pm2 delete all || true
+    - pm2 start index.js
+  only:
+    - master
+
+# 푸시 후 자동 배포 확인
+git add .
+git commit -m "runner test"
+git push origin main
