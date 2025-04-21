@@ -6,7 +6,7 @@ deploy:
   script:
     - echo "🚀 Deploying..."
     - pm2 delete all || true
-    - pm2 start app.js
+    - pm2 start index.js
   tags:
     - nodejs
   only:
