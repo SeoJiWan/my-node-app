@@ -1,9 +1,11 @@
 ## my-node-app CI/CD 실습 (with gitlab runner)
 
 # node.js 프로젝트 생성
+```
 cd my-node-app
 npm init -y
 npm i express 
+```
 
 # my-node-app index.js 파일 생성
 const express = require('express');
@@ -53,8 +55,8 @@ deploy_node:
     - npm install
     - pm2 delete all || true
     - pm2 start index.js
-  only:
-    - master
+  tags:
+    - nodejs
 
 # 푸시 후 자동 배포 확인
 git add .
