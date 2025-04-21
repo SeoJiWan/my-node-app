@@ -8,6 +8,6 @@ deploy:
     - pm2 delete all || true
     - pm2 start index.js
   tags:
-    - nodejs
+    - nodejs # GitLab Runner 태그
   only:
     - main  # 또는 master

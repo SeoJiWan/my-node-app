@@ -75,9 +75,17 @@ deploy_node:
     - nodejs
 ```
 
+```
+PM2(Process Manager2)는 Node.js 애플리케이션을 프로덕션 환경에서 실행/관리하는 툴
+Node.js 앱을 백그라운드에서 안정적으로 실행행
+```
+
 # 푸시 후 자동 배포 확인
 ```
 git add .
 git commit -m "runner test"
 git push origin main
 ```
+
+# 자동배포 성공
+![alt text](image-1.png)
