@@ -1,13 +1,15 @@
 ## my-node-app CI/CD 실습 (with gitlab runner)
+더 상세한 내용은
+https://wana.tistory.com/84
 
-# node.js 프로젝트 생성
+## node.js 프로젝트 생성
 ```
 cd my-node-app
 npm init -y
 npm i express 
 ```
 
-# my-node-app index.js 파일 생성
+## my-node-app index.js 파일 생성
 ```
 const express = require('express');
 const app = express();
@@ -16,14 +18,14 @@ app.get('/', (req, res) => res.send('Hello CI/CD!'));
 app.listen(port, () => console.log(`Server running on port ${port}`));
 ```
 
-# package.json start script 추가
+## package.json start script 추가
 ```
 "scripts": {
   "start": "node index.js"
 }
 ```
 
-# gitlab 저장소 생성, my-node-app push
+## gitlab 저장소 생성, my-node-app push
 ```
 cd my-node-app
 git init
@@ -34,13 +36,13 @@ git commit -m "init"
 git push origin main
 ```
 
-# ubuntu 서버 gitlab runner 설치
+## ubuntu 서버 gitlab runner 설치
 ```
 curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash
 sudo apt install gitlab-runner
 ```
 
-# gitlab runner 등록
+## gitlab runner 등록
 ```
 프로젝트 > Settings > CI/CD > Runners > 점 세개
 "Registration token" 복사
@@ -59,7 +61,7 @@ Tags | nodejs
 Executor | shell
 ```
 
-# .gitlab-ci.yml 작성
+## .gitlab-ci.yml 작성
 ```
 stages:
   - deploy
@@ -87,12 +89,12 @@ PM2(Process Manager2)는 Node.js 애플리케이션을 프로덕션 환경에서
 Node.js 앱을 백그라운드에서 안정적으로 실행행
 ```
 
-# 푸시 후 자동 배포 확인
+## 푸시 후 자동 배포 확인
 ```
 git add .
 git commit -m "runner test"
 git push origin main
 ```
 
-# 자동배포 성공
+## 자동배포 성공
 ![alt text](image-1.png)
